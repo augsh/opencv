@@ -9,10 +9,4 @@ target_include_directories(
 file(GLOB_RECURSE SO_FILES "lib/*.so")
 target_link_libraries(${PROJECT_NAME} INTERFACE ${SO_FILES})
 
-if(NOT ${OUT} STREQUAL "")
-  message("Set output directory to ${OUT}")
-  # file(GLOB_RECURSE BINS "bin/opencv_*")
-  # file(COPY ${BINS} DESTINATION ${OUT_BIN}/opencv)
-  file(GLOB_RECURSE LIBS "lib/libopencv_*")
-  file(COPY ${LIBS} DESTINATION ${OUT_LIB})
-endif()
+add_files(${OUT_3RDLIB} "lib/lib*")
